@@ -10,14 +10,14 @@ pipeline{
 
         stage('Checkout') {
             steps{  
-                dir('terraform'){
+                dir('terraform-test'){
                     git branch: 'main', url: 'https://github.com/athithyanac/Terraform-test.git'
                 }
             }
         }    
         stage('Terraform init') {
             steps{                
-                sh 'pwd; cd terraform; terraform init'
+                sh 'pwd; cd terraform-test; pwd; terraform init'
             }
         }
         stage('Test') {
