@@ -7,8 +7,10 @@ pipeline{
             AWS_SECRET_ACCESS_KEY = credentials('AWSSecretKey')
         }
         stage('Checkout') {
-            steps{                
-                git branch: 'main', url: 'https://github.com/athithyanac/Terraform-test.git'
+            steps{  
+                dir('terraform'){
+                    git branch: 'main', url: 'https://github.com/athithyanac/Terraform-test.git'
+                }
             }
         }    
         stage('Terraform init') {
