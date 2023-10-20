@@ -1,11 +1,13 @@
 pipeline{    
     agent any
 
+    environment {
+        AWS_ACCESS_KEY_ID = credentials('AWSSecretKey')
+        AWS_SECRET_ACCESS_KEY = credentials('AWSSecretKey')
+    }
+
     stages{        
-        environment {
-            AWS_ACCESS_KEY_ID = credentials('AWSSecretKey')
-            AWS_SECRET_ACCESS_KEY = credentials('AWSSecretKey')
-        }
+
         stage('Checkout') {
             steps{  
                 dir('terraform'){
