@@ -8,7 +8,9 @@ pipeline{
             }
         }    
         stage('Test') {
-            sh 'echo "lets start"'
+            steps{
+                sh 'echo "lets start"'
+            }
         }    
         /*stage('Terraform init') {
             steps{                
