@@ -27,7 +27,8 @@ pipeline{
         }
         stage('Terraform Import') {
             steps {
-                sh 'terraform import -no-color aws_security_group.bastion sg-07838a82908ebaacb'
+                sh 'pwd'
+                #sh 'terraform import -no-color aws_security_group.bastion sg-07838a82908ebaacb'
             }
         }
         /*stage('Test') {
