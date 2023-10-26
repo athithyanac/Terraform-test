@@ -27,7 +27,7 @@ pipeline{
         }
         stage('Terraform Import') {
             steps {
-                sh 'pwd; cd terraform-test; pwd'
+                sh 'pwd; cd terraform-test; pwd; terraform init'
                 sh 'terraform import -no-color aws_security_group.bastion sg-07838a82908ebaacb'
             }
         }
