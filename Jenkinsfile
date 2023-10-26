@@ -22,10 +22,15 @@ pipeline{
         }
         stage('Terraform Validate') {
             steps {
-                sh 'cd terraform-test; pwd; terraform validate; pwd'
+                sh 'cd terraform-test; pwd; terraform validate -no-color; pwd'
             }
         }
-        stage('Test') {
+        stage('Terraform Import') {
+            steps {
+                sh 'terraform import aws_security_group.bastion sg-07838a82908ebaacb'
+            }
+        }
+        /*stage('Test') {
             steps{
                 sh 'echo "lets start"'
             }
