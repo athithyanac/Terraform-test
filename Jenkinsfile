@@ -18,7 +18,7 @@ pipeline{
         stage('Terraform init') {
             steps{                
                 sh 'pwd; cd terraform-test; pwd; ls -l'
-                sh 'terraform init -no-color -inuput=false -upgrade=true -force-copy -backend-config=bucket=adis-s3bucket'
+                sh 'terraform init -no-color -inuput=false -upgrade=true -backend=true -force-copy -backend-config=bucket=adis-s3bucket'
                 sh 'pwd'
             }
         }
