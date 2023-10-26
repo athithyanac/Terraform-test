@@ -17,7 +17,8 @@ pipeline{
         }    
         stage('Terraform init') {
             steps{                
-                sh 'pwd; cd terraform-test; pwd; ls -l; terraform init -no-color; pwd'
+                sh 'pwd; cd terraform-test; pwd; ls -l; terraform init -no-color -inuput=false -upgrade=true -force-copy -backend-config=bucket=adis-s3bucket
+; pwd'
             }
         }
         stage('Terraform Validate') {
@@ -27,7 +28,7 @@ pipeline{
         }
         stage('Terraform Import') {
             steps {
-                sh 'pwd; cd terraform-test; pwd; terraform init -upgrade -no-color'
+                sh 'pwd; cd terraform-test; pwd'
                 sh 'terraform import -no-color aws_security_group.bastion sg-07838a82908ebaacb'
             }
         }
