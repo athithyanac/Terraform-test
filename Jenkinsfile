@@ -18,7 +18,7 @@ pipeline{
         stage('Terraform init') {
             steps{                
                 sh 'pwd; cd terraform-test; pwd; ls -l'
-                sh 'terraform init -no-color -inuput=false -backend=true'
+                sh 'terraform init -no-color'
                 sh 'pwd'
             }
         }
