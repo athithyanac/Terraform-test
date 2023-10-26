@@ -17,12 +17,12 @@ pipeline{
         }    
         stage('Terraform init') {
             steps{                
-                sh 'pwd; cd terraform-test; pwd; terraform init'
+                sh 'pwd; cd terraform-test; pwd; ls -l; terraform init; pwd'
             }
         }
         stage('Terraform Validate') {
             steps {
-                sh 'terraform validate'
+                sh 'cd terraform-test; pwd; terraform validate; pwd'
             }
         }
         stage('Test') {
