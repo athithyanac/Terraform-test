@@ -17,7 +17,7 @@ pipeline{
         }    
         stage('Terraform init') {
             steps{                
-                sh 'pwd; cd terraform-test; pwd; ls -l; terraform init; pwd'
+                sh 'pwd; cd terraform-test; pwd; ls -l; terraform init -no-color; pwd'
             }
         }
         stage('Terraform Validate') {
