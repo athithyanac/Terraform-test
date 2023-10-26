@@ -20,6 +20,11 @@ pipeline{
                 sh 'pwd; cd terraform-test; pwd; terraform init'
             }
         }
+        stage('Terraform Validate') {
+            steps {
+                sh 'terraform validate'
+            }
+        }
         stage('Test') {
             steps{
                 sh 'echo "lets start"'
